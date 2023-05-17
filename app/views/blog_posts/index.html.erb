@@ -1,0 +1,18 @@
+<h1>Blog</h1>
+<% if user_signed_in? %>
+    <%= link_to current_user.email, edit_user_registration_path %>
+    <%= link_to "sign out", destroy_user_session_path, data: { turbo_method: :delete } %>
+<% else %>
+    <%= link_to "sign in", new_user_session_path %>
+    <%= link_to "sign up", new_user_registration_path %>
+<% end %>
+<% @blog_posts.each do |post| %>
+    <h3><%= link_to post.title, post %> - 
+    <% if user_signed_in? %>
+        <%= button_to "Delete", post, method: :delete, data: { turbo_confirm: "Are you sure?"} %></h3>
+    <% end %>
+    <p><%= post.body %></p>
+<% end %>
+<% if user_signed_in? %>
+    <%= link_to "Create new", new_blog_post_path %> 
+<% end %>

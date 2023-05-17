@@ -1,0 +1,16 @@
+<%= form_with model: blog_post do |form| %>
+  <ul>
+  <% form.object.errors.each do |error| %>
+    <li><%= error.full_message %></li>
+  <% end %>
+  </ul>
+  <div>
+    <%= form.text_field :title, placeholder: "post title" %>
+  </div>
+  <div>
+    <%= form.text_area :body, placeholder: "post body" %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
