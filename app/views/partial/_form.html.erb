@@ -11,6 +11,15 @@
     <%= form.text_area :body, placeholder: "post body" %>
   </div>
   <div>
+    <%= form.text_area :email, placeholder: "email" %>
+  </div>
+  <div>
+    <%= form.datetime_select :published_at %>
+  </div>
+  <div>
+    <%= form.file_field :image %>
+  </div>
+  <div>
     <%= form.submit %>
   </div>
 <% end %>

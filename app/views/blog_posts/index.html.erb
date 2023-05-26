@@ -11,7 +11,7 @@
     <% if user_signed_in? %>
         <%= button_to "Delete", post, method: :delete, data: { turbo_confirm: "Are you sure?"} %></h3>
     <% end %>
-    <p><%= post.body %></p>
+    <p><%= post.body %> - <%= post.state %></p>
 <% end %>
 <% if user_signed_in? %>
     <%= link_to "Create new", new_blog_post_path %> 
