@@ -1,4 +1,9 @@
 <h1><%= @blog_post.title %></h1>
 <p><%= @blog_post.body %></p>
-<%= image_tag(@blog_post.image.url(:thumb)) %>
+<% if @blog_post.image.present? %>
+  <%= image_tag(@blog_post.image.url(:thumb)) %>
+<% end %>
+<% if @blog_post.cover.present? %>
+  <%= image_tag @blog_post.cover.variant(:thumb) %>
+<% end %>
 <%= link_to "Edit", edit_blog_post_path(@blog_post) %>

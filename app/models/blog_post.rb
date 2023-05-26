@@ -10,6 +10,9 @@ class BlogPost < ApplicationRecord
     scope :published, -> { where("published_at <= ?", Time.now) }
 
     mount_uploader :image, ImageUploader 
+    has_one_attached :cover do |attachable|
+      attachable.variant :thumb, resize_to_limit: [100, 100]
+    end
 
     def published_at_string
         published_at&.to_formatted_s(:long)
